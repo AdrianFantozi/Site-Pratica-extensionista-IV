@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAPROCOM - Contato</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<div id="toast-mensagem">Mensagem enviada com sucesso! A AAPROCOM agradece seu contato.</div>
+
+<script>
+        function enviarFormulario(event) {
+            event.preventDefault();
+
+            let toast = document.getElementById("toast-mensagem");
+            
+            toast.classList.add("mostrar");
+
+            setTimeout(function() {
+                toast.classList.remove("mostrar");
+            }, 4000);
+
+            document.getElementById("meuFormulario").reset(); 
+        }
+    </script>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1><a href="index.html">AAPROCOM</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="transparencia.html">Transparência</a></li>
+                <li><a href="contato.html" class="ativo">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cabecalho-pagina">
+            <h2>Fale Conosco</h2>
+            <p>Estamos de portas abertas para a comunidade. Entre em contato para dúvidas, sugestões ou parcerias.</p>
+        </section>
+
+        <section class="contato-container">
+            <div class="info-contato">
+                <h3>Nossa Sede</h3>
+                <p><strong>Endereço:</strong><br> Rua Getúlio Vargas, 91 – Sorocabano<br> Jaboticabal/SP - CEP: 14870-470</p>
+                
+                <div class="mapa-container">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=Rua%20Get%C3%BAlio%20Vargas,%2091%20-%20Sorocabano,%20Jaboticabal&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        width="100%" 
+                        height="250" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <h3 style="margin-top: 20px;">Horário de Atendimento</h3>
+                <p>Segunda a Sexta: 08h às 17h</p>
+
+                <h3 style="margin-top: 20px;">E-mail</h3>
+                <p>contato@aaprocom.org.br</p>
+            </div>
+            
+            <div class="formulario-contato">
+                <h3>Envie uma Mensagem</h3>
+                    
+                <form id="meuFormulario" action="#" method="POST" onsubmit="enviarFormulario(event)">
+                    <div class="grupo-form">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+                    </div>
+                    
+                    <div class="grupo-form">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                    </div>
+                    
+                    <div class="grupo-form">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Como podemos ajudar?"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primario">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>AAPROCOM – Associação de Apoio a Projetos Comunitários de Jaboticabal</strong></p>
+        <p>Endereço: Rua Getúlio Vargas, 91 – Sorocabano, Jaboticabal/SP | CEP: 14870-470</p>
+        <p style="margin-top: 10px; font-size: 0.9em;">&copy; 2026 Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
