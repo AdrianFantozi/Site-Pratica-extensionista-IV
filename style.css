@@ -157,7 +157,7 @@ footer p strong {
     flex: 1;
     min-width: 250px;
     max-width: 300px;
-    text-align: left;
+    text-align: center;
 }
 
 .card h4 {
@@ -169,6 +169,14 @@ footer p strong {
 .card p {
     color: #444; 
     font-size: 1rem;
+}
+
+.img-card {
+    width: 100%; 
+    height: 180px; 
+    object-fit: cover; 
+    border-radius: 12px; 
+    margin-bottom: 15px; 
 }
 
 .destaque-transparencia {
@@ -207,10 +215,6 @@ footer p strong {
 .btn-secundario:hover {
     background-color: var(--cor-amarelo); 
     color: var(--cor-preto); 
-}
-
-footer p {
-    margin-bottom: 5px;
 }
 
 .impacto {
@@ -351,16 +355,19 @@ nav a.ativo {
     border-bottom: 2px solid var(--cor-amarelo); 
 }
 
+/* --- Página de Contato (Com Mapa e Botões Diretos) --- */
 .contato-container {
     display: flex;
     flex-wrap: wrap; 
     gap: 3rem;
     max-width: 1000px;
-    margin: 0 auto;
-    background-color: var(--cor-branco); 
-    padding: 2rem;
+    margin: 0 auto 4rem auto;
+    background-color: var(--cor-branco);
+    padding: 2.5rem;
     border-radius: 8px;
-    border: 1px solid var(--cor-cinza); 
+    border: 1px solid var(--cor-cinza);
+    border-top: 6px solid var(--cor-amarelo); /* Destaque visual no topo do card */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 .info-contato {
@@ -369,108 +376,51 @@ nav a.ativo {
 }
 
 .info-contato h3 {
-    color: var(--cor-amarelo); 
+    color: var(--cor-amarelo);
     margin-bottom: 10px;
     font-size: 1.3rem;
-    border-bottom: 1px solid var(--cor-cinza); 
+    border-bottom: 1px solid var(--cor-cinza);
     padding-bottom: 5px;
 }
 
 .info-contato p {
-    color: var(--cor-preto); 
+    color: var(--cor-preto);
     line-height: 1.8;
+    margin-bottom: 15px;
 }
 
-.formulario-contato {
-    flex: 2; 
-    min-width: 300px;
-}
-
-.formulario-contato h3 {
-    color: var(--cor-preto); 
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-}
-
-.grupo-form {
-    margin-bottom: 1.5rem;
+/* Grupo de Botões */
+.botoes-contato {
     display: flex;
-    flex-direction: column;
-}
-
-.grupo-form label {
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: var(--cor-preto); 
-}
-
-.grupo-form input,
-.grupo-form textarea {
-    padding: 12px;
-    border: 1px solid var(--cor-cinza); 
-    border-radius: 4px;
-    font-family: Arial, sans-serif;
-    font-size: 1rem;
-    background-color: #fcfcfc;
-    transition: border-color 0.3s ease;
-}
-
-.grupo-form input:focus,
-.grupo-form textarea:focus {
-    outline: none;
-    border-color: var(--cor-amarelo); 
-    box-shadow: 0 0 5px rgba(255, 182, 0, 0.5); 
-}
-
-#toast-mensagem {
-    visibility: hidden; 
-    min-width: 250px;
-    background-color: var(--cor-branco); 
-    color: var(--cor-preto); 
-    text-align: center;
-    border-radius: 4px;
-    padding: 16px 20px;
-    position: fixed; 
-    z-index: 100; 
-    left: 50%; 
-    bottom: 20px; 
-    transform: translateX(-50%); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.4s ease, bottom 0.4s ease;
-}
-
-#toast-mensagem.mostrar {
-    visibility: visible;
-    opacity: 1; 
-    bottom: 40px; 
-}
-
-.img-card {
-    width: 100%; 
-    height: 180px; 
-    object-fit: cover; 
-    border-radius: 12px; 
-    margin-bottom: 15px; 
-}
-
-.card {
-    background-color: var(--cor-branco); 
-    border: 1px solid var(--cor-cinza); 
-    border-top: 6px solid var(--cor-amarelo); 
-    padding: 1.5rem;
-    border-radius: 6px;
-    flex: 1;
-    min-width: 250px;
-    max-width: 300px;
-    text-align: center; 
-}
-
-.mapa-container {
+    flex-direction: column; /* Empilha os botões um embaixo do outro */
+    gap: 15px;
     margin-top: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px; 
-    overflow: hidden; 
-    border: 2px solid var(--cor-cinza); 
+}
+
+.btn-contato {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: var(--cor-preto);
+    color: var(--cor-branco);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn-contato:hover {
+    background-color: var(--cor-amarelo);
+    color: var(--cor-preto);
+    transform: scale(1.02); /* Cresce bem pouquinho para dar sensação de clique */
+}
+
+/* Área do Mapa */
+.mapa-contato {
+    flex: 1; /* Ocupa a outra metade da tela */
+    min-width: 300px;
+    border-radius: 8px;
+    overflow: hidden; /* Corta as quinas retas do mapa do Google */
+    border: 2px solid var(--cor-cinza);
+    display: flex; /* Truque para o mapa não deixar espaços vazios na caixa */
 }
